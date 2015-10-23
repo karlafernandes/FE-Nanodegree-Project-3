@@ -24,13 +24,39 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function() {
+    // Play initial place coordinate
+    this.x = 200;
+    this.y = 400;
+    this.sprite = 'images/char-boy.png';
+}
 
+// Update the player position, required method for game
+Player.prototype.update = function() {
+
+}
+
+// Draw the player on the screen, required method for game
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+Player.prototype.handleInput = function(keyPressed) {
+	
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+var allEnemies = [];
 
+// Adding  Enemies
+for (var i = 0; i < 3; i++) {
+    allEnemies.push(new Enemy(-60, 60 + 85 * i, Math.floor(Math.random() * 5 + 1) * 75));
+}
 
+// Starting the game
+var player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
