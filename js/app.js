@@ -25,6 +25,17 @@ Enemy.prototype.update = function(dt) {
         this.x = - spaceSize;
 	    this.speed = spaceSize * Math.floor(Math.random() * 7 + 2);
     }
+
+    var minX = this.x - spaceSize;
+    var maxX = this.x + spaceSize;
+    var minY = this.y - spaceSize;
+    var maxY = this.y + spaceSize;
+
+	if ((player.update(player.x, minX, maxX)) && 
+		(player.update(player.y, minY, maxY))) {
+		    player.x = 200;
+		    player.y = 400;
+	}
 }
 
 // Draw the enemy on the screen, required method for game
@@ -42,9 +53,10 @@ var Player = function() {
     this.sprite = 'images/char-boy.png';
 }
 
-// Update the player position, required method for game
-Player.prototype.update = function() {
-
+// Update the player position, required method for game, checking if the enemy and player are coliding
+Player.prototype.update = function(x, min, max) {
+	// console.log(x, min, max, x >= min && x <= max);
+	return x >= min && x <= max;
 }
 
 // Draw the player on the screen, required method for game
@@ -57,7 +69,7 @@ Player.prototype.handleInput = function(keyPressed) {
     var spaceX = 100;
     var spaceY = 90;
 
-	//	console.log(this.y + ' ' + keyPressed + ' ' + this.x + ' ' + this.y);
+	// console.log(this.y + ' ' + keyPressed + ' ' + this.x + ' ' + this.y);
 	if (keyPressed === 'left' && this.x !== 0) {
 		this.x -= spaceX;
 	} else if (keyPressed === 'right' && this.x !== 400) {
