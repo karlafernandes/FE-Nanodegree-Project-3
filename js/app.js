@@ -53,7 +53,26 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(keyPressed) {
-	
+    // Listening to keyPressed 'left', 'up', 'right', 'down'
+    var spaceX = 100;
+    var spaceY = 90;
+
+	//	console.log(this.y + ' ' + keyPressed + ' ' + this.x + ' ' + this.y);
+	if (keyPressed === 'left' && this.x !== 0) {
+		this.x -= spaceX;
+	} else if (keyPressed === 'right' && this.x !== 400) {
+		this.x += spaceX;
+	} else if (keyPressed === 'up')  {
+		if (this.y === 40) {
+			// Starting over
+			this.x = 200;
+		    this.y = 400;
+	    } else {
+			this.y -= spaceY;	
+		}	
+	} else if (keyPressed === 'down' && this.y !== 400) {
+		this.y += spaceY;
+	}
 }
 
 // Now instantiate your objects.
