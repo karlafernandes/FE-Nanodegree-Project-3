@@ -13,7 +13,7 @@ var Enemy = function(enemyX, enemyY, enemySpeed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-}
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -55,7 +55,7 @@ var Player = function() {
     this.x = PLAYER_START_X;
     this.y = PLAYER_START_Y;
     this.sprite = 'images/char-boy.png';
-}
+};
 
 // Update the player position, required method for game, checking if the enemy and player are coliding
 Player.prototype.update = function(x, min, max) {
