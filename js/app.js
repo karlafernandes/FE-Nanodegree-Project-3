@@ -1,6 +1,6 @@
 // Player Initial Positions
-var playerStartX = 200;
-var playerStartY = 400;
+var PLAYER_START_X = 200;
+var PLAYER_START_Y = 400;
 
 // Enemies our player must avoid
 var Enemy = function(enemyX, enemyY, enemySpeed) {
@@ -37,8 +37,8 @@ Enemy.prototype.update = function(dt) {
 
 	if ((player.update(player.x, minX, maxX)) && 
 		(player.update(player.y, minY, maxY))) {
-		    player.x = playerStartX;
-		    player.y = playerStartY;
+		    player.x = PLAYER_START_X;
+		    player.y = PLAYER_START_Y;
 	}
 }
 
@@ -52,8 +52,8 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     // Play initial place coordinate
-    this.x = playerStartX;
-    this.y = playerStartY;
+    this.x = PLAYER_START_X;
+    this.y = PLAYER_START_Y;
     this.sprite = 'images/char-boy.png';
 }
 
@@ -81,8 +81,8 @@ Player.prototype.handleInput = function(keyPressed) {
 	} else if (keyPressed === 'up')  {
 		if (this.y === 40) {
 			// Starting over
-		    this.x = playerStartX;
-		    this.y = playerStartY;
+		    this.x = PLAYER_START_X;
+		    this.y = PLAYER_START_Y;
 	    } else {
 			this.y -= spaceY;	
 		}	

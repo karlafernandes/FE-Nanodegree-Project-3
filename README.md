@@ -1,6 +1,12 @@
-frontend-nanodegree-arcade-game
+Arcade Game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+### How to Start Game
 
-for self-checking their submission.
+    1. Simply access the game page from any device
+
+### How to Play
+
+    1. Use arrow keys to control our hero
+    2. Avoid the enemies to achieve the river
+    3. Have fun!
